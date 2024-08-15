@@ -23,7 +23,7 @@ namespace JaysonParser
                 try
                 {
                     var (newPosition, assigned) = ParseValue(json, position, resultAssignedNull, out result);
-                    position = newPosition;
+                    position = newPosition + 1;
                     resultAssignedNull = assigned;
 
                     // Check for any non-whitespace characters after the parsed value
@@ -307,7 +307,7 @@ namespace JaysonParser
                 throw new Exception("Object is not properly closed");
             }
 
-
+            // position++;
             ParsedObject = result;
             return position;
         }
